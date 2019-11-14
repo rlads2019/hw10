@@ -69,7 +69,15 @@ docs_df
         例如 `samesex_marriage/txt/anti_7.txt` 的 `topic` 為 `anti`；
         `samesex_marriage/txt/pro_108.txt` 的 `topic` 為 `pro`。
         你可以透過 `basename()` 與 `strsplit()` 從上方範例程式碼中的 `fps` 取得檔名中的這項資訊。
-
+    5. 請在程式碼中加入適量**註解** (沒有註解以致程式碼閱讀困難者，酌量扣分)，例如：
+        
+        ```r
+        # Read post from file
+        post <- readLines(fps[i], encoding = "UTF-8")
+        
+        # Extract title
+        title <- ...
+        ```
 ```{r}
 # Your code goes here
 # please save the resulting data frame to `docs_df`

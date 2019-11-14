@@ -1726,15 +1726,21 @@ div.tocify {
 <ul>
 <li>每篇文章的 <code>topic</code> 資訊藏在文字檔的檔名中， 例如 <code>samesex_marriage/txt/anti_7.txt</code> 的 <code>topic</code> 為 <code>anti</code>； <code>samesex_marriage/txt/pro_108.txt</code> 的 <code>topic</code> 為 <code>pro</code>。 你可以透過 <code>basename()</code> 與 <code>strsplit()</code> 從上方範例程式碼中的 <code>fps</code> 取得檔名中的這項資訊。</li>
 </ul></li>
+<li><p>請在程式碼中加入適量<strong>註解</strong> (沒有註解以致程式碼閱讀困難者，酌量扣分)，例如：</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="co"># Read post from file</span></a>
+<a class="sourceLine" id="cb3-2" data-line-number="2">post &lt;-<span class="st"> </span><span class="kw">readLines</span>(fps[i], <span class="dt">encoding =</span> <span class="st">&quot;UTF-8&quot;</span>)</a>
+<a class="sourceLine" id="cb3-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb3-4" data-line-number="4"><span class="co"># Extract title</span></a>
+<a class="sourceLine" id="cb3-5" data-line-number="5">title &lt;-<span class="st"> </span>...</a></code></pre></div></li>
 </ol></li>
 </ul>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="co"># Your code goes here</span></a>
-<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="co"># please save the resulting data frame to `docs_df`</span></a>
-<a class="sourceLine" id="cb3-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb3-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb3-5" data-line-number="5"><span class="co"># 輸出結果請參考 `samesex_marriage.rds`</span></a>
-<a class="sourceLine" id="cb3-6" data-line-number="6"><span class="co"># 請勿更動下方程式碼</span></a>
-<a class="sourceLine" id="cb3-7" data-line-number="7">knitr<span class="op">::</span><span class="kw">kable</span>(<span class="kw">head</span>(docs_df, <span class="dv">3</span>), <span class="dt">align =</span> <span class="st">&quot;c&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="co"># Your code goes here</span></a>
+<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="co"># please save the resulting data frame to `docs_df`</span></a>
+<a class="sourceLine" id="cb4-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb4-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb4-5" data-line-number="5"><span class="co"># 輸出結果請參考 `samesex_marriage.rds`</span></a>
+<a class="sourceLine" id="cb4-6" data-line-number="6"><span class="co"># 請勿更動下方程式碼</span></a>
+<a class="sourceLine" id="cb4-7" data-line-number="7">knitr<span class="op">::</span><span class="kw">kable</span>(<span class="kw">head</span>(docs_df, <span class="dv">3</span>), <span class="dt">align =</span> <span class="st">&quot;c&quot;</span>)</a></code></pre></div>
 <table>
 <thead>
 <tr class="header">
@@ -1761,24 +1767,24 @@ div.tocify {
 <div id="type-token-ratio-15-" class="section level1">
 <h1><span class="header-section-number">2</span> Type-token ratio (15 分)</h1>
 <p>請運用上方整理出來的 data frame (或直接讀取 <code>samesex_marriage.rds</code>)，將文章依據 topic 分成兩組，計算出這兩個 topic 的詞彙豐富度 (以 type-token ratio 衡量，定義見下)。你可以使用 <code>tidytext</code>、<code>quanteda</code> 或是任何其它方法。</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="co"># Your code goes here</span></a>
-<a class="sourceLine" id="cb4-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb4-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb4-4" data-line-number="4"><span class="co"># Should print out:</span></a>
-<a class="sourceLine" id="cb4-5" data-line-number="5"><span class="co"># tidytext:</span></a>
-<a class="sourceLine" id="cb4-6" data-line-number="6"><span class="co">#</span></a>
-<a class="sourceLine" id="cb4-7" data-line-number="7"><span class="co">#&gt; # A tibble: 2 x 2</span></a>
-<a class="sourceLine" id="cb4-8" data-line-number="8"><span class="co">#&gt;   topic   TTR</span></a>
-<a class="sourceLine" id="cb4-9" data-line-number="9"><span class="co">#&gt;   &lt;chr&gt; &lt;dbl&gt;</span></a>
-<a class="sourceLine" id="cb4-10" data-line-number="10"><span class="co">#&gt; 1 anti  0.115</span></a>
-<a class="sourceLine" id="cb4-11" data-line-number="11"><span class="co">#&gt; 2 pro   0.173</span></a>
-<a class="sourceLine" id="cb4-12" data-line-number="12"><span class="co">#</span></a>
-<a class="sourceLine" id="cb4-13" data-line-number="13"><span class="co"># or...</span></a>
-<a class="sourceLine" id="cb4-14" data-line-number="14"><span class="co"># quanteda:</span></a>
-<a class="sourceLine" id="cb4-15" data-line-number="15"><span class="co">#</span></a>
-<a class="sourceLine" id="cb4-16" data-line-number="16"><span class="co">#&gt;   document       TTR</span></a>
-<a class="sourceLine" id="cb4-17" data-line-number="17"><span class="co">#&gt; 1     anti 0.1142181</span></a>
-<a class="sourceLine" id="cb4-18" data-line-number="18"><span class="co">#&gt; 2      pro 0.1740035</span></a></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="co"># Your code goes here</span></a>
+<a class="sourceLine" id="cb5-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb5-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb5-4" data-line-number="4"><span class="co"># Should print out:</span></a>
+<a class="sourceLine" id="cb5-5" data-line-number="5"><span class="co"># tidytext:</span></a>
+<a class="sourceLine" id="cb5-6" data-line-number="6"><span class="co">#</span></a>
+<a class="sourceLine" id="cb5-7" data-line-number="7"><span class="co">#&gt; # A tibble: 2 x 2</span></a>
+<a class="sourceLine" id="cb5-8" data-line-number="8"><span class="co">#&gt;   topic   TTR</span></a>
+<a class="sourceLine" id="cb5-9" data-line-number="9"><span class="co">#&gt;   &lt;chr&gt; &lt;dbl&gt;</span></a>
+<a class="sourceLine" id="cb5-10" data-line-number="10"><span class="co">#&gt; 1 anti  0.115</span></a>
+<a class="sourceLine" id="cb5-11" data-line-number="11"><span class="co">#&gt; 2 pro   0.173</span></a>
+<a class="sourceLine" id="cb5-12" data-line-number="12"><span class="co">#</span></a>
+<a class="sourceLine" id="cb5-13" data-line-number="13"><span class="co"># or...</span></a>
+<a class="sourceLine" id="cb5-14" data-line-number="14"><span class="co"># quanteda:</span></a>
+<a class="sourceLine" id="cb5-15" data-line-number="15"><span class="co">#</span></a>
+<a class="sourceLine" id="cb5-16" data-line-number="16"><span class="co">#&gt;   document       TTR</span></a>
+<a class="sourceLine" id="cb5-17" data-line-number="17"><span class="co">#&gt; 1     anti 0.1142181</span></a>
+<a class="sourceLine" id="cb5-18" data-line-number="18"><span class="co">#&gt; 2      pro 0.1740035</span></a></code></pre></div>
 <div id="ttr-" class="section level3">
 <h3><span class="header-section-number">2.0.1</span> TTR 定義</h3>
 <p>type-token ratio (TTR) 是一種衡量文本詞彙豐富度的指標，其定義為：</p>
